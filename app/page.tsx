@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Button } from "./_components/ui/button"
 import { Input } from "./_components/ui/input"
-import { SearchIcon } from "lucide-react"
+import { EyeIcon, FootprintsIcon, SearchIcon } from "lucide-react"
 import Header from "./_components/ui/header"
 import { Card, CardContent } from "./_components/ui/card"
 import { Badge } from "./_components/ui/badge"
@@ -12,7 +12,12 @@ import BarbershopItem from "./_components/barbershop-item"
 const Home = async () => {
   //chamar o banco de dados.
   const barbershops = await db.barbershop.findMany({})
-  console.log({ barbershops })
+  const popularBarbershops = await db.barbershop.findMany({
+    orderBy: {
+      name: "desc",
+    },
+  })
+
   return (
     <div>
       <Header />
@@ -28,7 +33,40 @@ const Home = async () => {
           </Button>
         </div>
 
-        {/* Banner */}
+        {/*BUSCA RAPIDA*/}
+        <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
+          <Button className="gap-2" variant="secondary">
+            <Image src="/barba.svg" width={16} height={16} alt="Cabelo" />
+            Cabelo
+          </Button>
+
+          <Button className="gap-2" variant="secondary">
+            <Image src="/barba.svg" width={16} height={16} alt="Barba" />
+            Barba
+          </Button>
+
+          <Button className="gap-2" variant="secondary">
+            <FootprintsIcon width={16} height={16} />
+            Pezinho
+          </Button>
+
+          <Button className="gap-2" variant="secondary">
+            <EyeIcon width={16} height={16} />
+            Sobrancelha
+          </Button>
+
+          <Button className="gap-2" variant="secondary">
+            <Image
+              src="/acabamento.svg"
+              width={16}
+              height={16}
+              alt="Acabamento"
+            />
+            Acabamento
+          </Button>
+        </div>
+
+        {/* Imagem */}
         <div className="relative mt-6 h-[150px] w-full">
           <Image
             src="/banner-01.png"
@@ -73,12 +111,31 @@ const Home = async () => {
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
           Recomendados
         </h2>
+
         <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
           {barbershops.map((barbershop) => (
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+          Recomendados
+        </h2>
+        <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
+          {popularBarbershops.map((barbershop) => (
+            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
+      <footer>
+        <Card>
+          <CardContent className="px-5 py-6">
+            <p className="text-xm text-gray-400">
+              @2025 Copyright{" "}
+              <span className="font-bold"> CodeForSolution </span>
+            </p>
+          </CardContent>
+        </Card>
+      </footer>
     </div>
   )
 }
