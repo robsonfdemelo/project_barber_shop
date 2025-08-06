@@ -10,8 +10,8 @@ interface ServiceItemProps {
 const ServiceItem = ({ service }: ServiceItemProps) => {
   return (
     <Card>
-      <CardContent className="flex items-center gap-3 p-3">
-        {/**Imagem */}
+      <CardContent className="flex gap-3 p-3">
+        {/* Imagem */}
         <div className="relative max-h-[110px] min-h-[110px] min-w-[110px] max-w-[110px]">
           <Image
             src={service.imageUrl}
@@ -20,19 +20,26 @@ const ServiceItem = ({ service }: ServiceItemProps) => {
             alt={service.name}
           />
         </div>
-        {/**Direita */}
-        <div className="space-y-2">
-          <h3 className="text-sm font-semibold">{service.name}</h3>
-          <p className="text-sm text-gray-400">{service.description}</p>
-          {/**PREÇO E BOTÃO */}
-          <div className="flex items-center justify-between">
+
+        {/* Direita */}
+        <div className="flex flex-1 flex-col justify-between">
+          <div>
+            <h3 className="text-sm font-semibold">{service.name}</h3>
+            <p className="text-sm text-gray-400">{service.description}</p>
+          </div>
+
+          {/* Preço e Botão alinhados horizontalmente */}
+          <div className="mt-2 flex items-center justify-between">
             <p className="text-sm font-bold text-primary">
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               }).format(Number(service.price))}
             </p>
-            <Button variant="secondary" size="sm">
+            <Button
+              className="bg-purple-600 text-white hover:bg-purple-700"
+              size="sm"
+            >
               Reservar
             </Button>
           </div>

@@ -3,7 +3,6 @@ import { Button } from "./_components/ui/button"
 import { Input } from "./_components/ui/input"
 import { SearchIcon } from "lucide-react"
 import Header from "./_components/ui/header"
-import { Card, CardContent } from "./_components/ui/card"
 import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/barbershop-item"
 import { QuickSearchOption } from "./_constants/search"
@@ -79,16 +78,6 @@ const Home = async () => {
           ))}
         </div>
       </div>
-      <footer>
-        <Card>
-          <CardContent className="px-5 py-6">
-            <p className="text-xm text-gray-400">
-              @2025 Copyright{" "}
-              <span className="font-bold"> CodeForSolution </span>
-            </p>
-          </CardContent>
-        </Card>
-      </footer>
     </div>
   )
 }
