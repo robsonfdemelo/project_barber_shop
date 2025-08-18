@@ -29,15 +29,15 @@ Um aplicativo moderno para **barbearias** que facilita o processo de **agendamen
 
 ### Página Inicial
 
-![Home](./docs/screenshot-home.png)
+![Home](./docs/screenshots/home.png)
 
 ### Catálogo de Barbearias
 
-![Catalog](./docs/screenshot-catalog.png)
+![Catalog](./docs/screenshots/catalog.png)
 
 ### Footer com Branding
 
-![Footer](./docs/screenshot-footer.png)
+![Footer](./docs/screenshots/footer.png)
 
 ---
 
