@@ -1,4 +1,3 @@
-import { DayPicker } from "react-day-picker"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 function CustomCaption(props: any) {
