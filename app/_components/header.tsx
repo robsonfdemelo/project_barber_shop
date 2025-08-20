@@ -13,12 +13,11 @@ const Header = () => (
         <Image
           alt="Barber Shop"
           src="/logo_new.png"
-          width={300} // pode manter grande; é o tamanho “intrínseco”
+          width={300}
           height={300}
-          // responsivo: muda o tamanho “preferido” por breakpoint
           sizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 240px"
           priority
-          className="lg:h-30 h-36 w-auto md:h-40" // ~64px / 80px / 96px de altura
+          className="lg:h-30 h-36 w-auto md:h-40"
         />
       </Link>
 
@@ -28,7 +27,7 @@ const Header = () => (
             size="icon"
             variant="outline"
             aria-label="Abrir menu"
-            className="md:hidden"
+            // CLASSE md:hidden REMOVIDA - agora o botão aparece em todas as resoluções
           >
             <MenuIcon />
           </Button>
